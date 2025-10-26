@@ -1,14 +1,19 @@
 "use client"
 
+import ThreeBackground from "./three-background"
+
 interface HeroProps {
   scrollY: number
 }
 
 export default function Hero({ scrollY }: HeroProps) {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-mesh">
-      {/* Floating Animated Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-linear-to-b from-background via-background/95 to-background">
+      {/* 3D Background with React Three Fiber */}
+      <ThreeBackground />
+      
+      {/* Floating Animated Shapes (kept for additional depth) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="floating-shape top-10 left-[10%] w-96 h-96 text-primary" />
         <div className="floating-shape-alt top-20 right-[15%] w-[500px] h-[500px] text-secondary" />
         <div className="floating-shape bottom-20 right-[10%] w-80 h-80 text-accent" />
