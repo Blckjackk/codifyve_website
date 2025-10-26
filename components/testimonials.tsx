@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Star } from "lucide-react"
+import ParticlesBackground from "./particles-background"
 
 interface Testimonial {
   id: number
@@ -69,8 +70,14 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
-      <div className="max-w-7xl mx-auto">
+    <section id="testimonials" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh-alt">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape top-20 left-10 w-72 h-72 text-primary" />
+        <div className="floating-shape-alt bottom-20 right-10 w-80 h-80 text-accent" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">What Our Clients Say</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

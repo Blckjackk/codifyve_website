@@ -1,6 +1,7 @@
 "use client"
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import ParticlesBackground from "./particles-background"
 
 const faqs = [
   {
@@ -37,8 +38,14 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section id="faq" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh-alt">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape top-10 left-10 w-64 h-64 text-accent" />
+        <div className="floating-shape-alt bottom-10 right-10 w-72 h-72 text-primary" />
+      </div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Frequently Asked Questions</h2>
           <p className="text-lg text-muted-foreground">Got questions? We've got answers!</p>

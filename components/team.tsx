@@ -139,8 +139,15 @@ export default function Team() {
   }, [])
 
   return (
-    <section id="team" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section id="team" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape-alt top-20 right-20 w-80 h-80 text-primary" />
+        <div className="floating-shape bottom-20 left-20 w-96 h-96 text-secondary" />
+        <div className="floating-shape top-1/2 left-1/2 w-64 h-64 text-accent" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Meet Our Team</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

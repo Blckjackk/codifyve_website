@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
+import ParticlesBackground from "./particles-background"
 
 interface BlogPost {
   id: number
@@ -76,8 +77,14 @@ export default function Blog() {
   }, [])
 
   return (
-    <section id="blog" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
-      <div className="max-w-7xl mx-auto">
+    <section id="blog" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape-alt top-20 right-20 w-80 h-80 text-secondary" />
+        <div className="floating-shape bottom-20 left-20 w-72 h-72 text-primary" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Latest Insights</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

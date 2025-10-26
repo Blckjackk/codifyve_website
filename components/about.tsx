@@ -2,8 +2,14 @@
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-4xl mx-auto">
+    <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape-alt top-20 right-20 w-80 h-80 text-secondary" />
+        <div className="floating-shape bottom-20 left-20 w-72 h-72 text-accent" />
+      </div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">About Codifyve</h2>
         </div>

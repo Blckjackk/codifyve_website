@@ -28,8 +28,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh-alt">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape top-10 left-10 w-80 h-80 text-primary" />
+        <div className="floating-shape-alt bottom-10 right-10 w-72 h-72 text-accent" />
+      </div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Let's Work Together</h2>
           <p className="text-lg text-muted-foreground">
@@ -127,7 +133,7 @@ export default function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-gradient-to-r from-primary via-secondary to-accent text-primary-foreground font-semibold rounded-lg hover-glow transition-all"
+              className="w-full px-6 py-3 bg-linear-to-r from-primary via-secondary to-accent text-primary-foreground font-semibold rounded-lg hover-glow transition-all"
             >
               {submitted ? "Message Sent! ✓" : "Send Message"}
             </button>

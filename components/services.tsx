@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Code, Smartphone, Palette, Server, TestTube, Cloud } from "lucide-react"
+import ParticlesBackground from "./particles-background"
 
 interface Service {
   id: number
@@ -74,8 +75,14 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape-alt top-20 left-10 w-80 h-80 text-accent" />
+        <div className="floating-shape bottom-20 right-10 w-72 h-72 text-primary" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Our Services</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

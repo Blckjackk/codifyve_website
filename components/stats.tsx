@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Users, Briefcase, Award, Coffee } from "lucide-react"
+import ParticlesBackground from "./particles-background"
 
 interface Stat {
   icon: React.ReactNode
@@ -61,8 +62,14 @@ export default function Stats() {
   }, [hasAnimated])
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh-alt">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape top-10 right-20 w-72 h-72 text-primary" />
+        <div className="floating-shape-alt bottom-10 left-20 w-64 h-64 text-secondary" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">

@@ -6,11 +6,13 @@ interface HeroProps {
 
 export default function Hero({ scrollY }: HeroProps) {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background gradient elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse" />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-mesh">
+      {/* Floating Animated Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="floating-shape top-10 left-[10%] w-96 h-96 text-primary" />
+        <div className="floating-shape-alt top-20 right-[15%] w-[500px] h-[500px] text-secondary" />
+        <div className="floating-shape bottom-20 right-[10%] w-80 h-80 text-accent" />
+        <div className="floating-shape-alt bottom-10 left-[20%] w-96 h-96 text-primary" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -27,7 +29,7 @@ export default function Hero({ scrollY }: HeroProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#portfolio"
-              className="px-8 py-3 bg-gradient-to-r from-primary via-secondary to-accent text-primary-foreground font-semibold rounded-lg hover-glow inline-block"
+              className="px-8 py-3 bg-linear-to-r from-primary via-secondary to-accent text-primary-foreground font-semibold rounded-lg hover-glow inline-block"
             >
               View Our Work
             </a>
