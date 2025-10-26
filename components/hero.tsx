@@ -6,7 +6,7 @@ interface HeroProps {
 
 export default function Hero({ scrollY }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       {/* Background gradient elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
