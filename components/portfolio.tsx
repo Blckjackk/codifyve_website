@@ -188,46 +188,48 @@ export default function Portfolio() {
 
       {/* Project Detail Dialog */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-5xl max-h-[85vh] overflow-hidden p-0">
           {selectedProject && (
-            <>
-              <DialogHeader>
+            <div className="flex flex-col h-full">
+              <DialogHeader className="px-6 pt-6 pb-4 border-b">
                 <DialogTitle className="text-3xl font-bold gradient-text">{selectedProject.title}</DialogTitle>
               </DialogHeader>
 
-              <div className="space-y-6">
+              <div className="overflow-y-auto px-6 py-6 space-y-6 flex-1">
                 {/* Image Carousel */}
-                <Carousel className="w-full">
-                  <CarouselContent>
-                    {selectedProject.images.map((image, index) => (
-                      <CarouselItem key={index}>
-                        <div className="rounded-lg overflow-hidden">
-                          <img
-                            src={image || "/placeholder.svg"}
-                            alt={`${selectedProject.title} - Image ${index + 1}`}
-                            className="w-full h-[400px] object-cover"
-                          />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
-                </Carousel>
+                <div className="w-full">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {selectedProject.images.map((image, index) => (
+                        <CarouselItem key={index}>
+                          <div className="rounded-lg overflow-hidden border-2 border-border">
+                            <img
+                              src={image || "/placeholder.svg"}
+                              alt={`${selectedProject.title} - Image ${index + 1}`}
+                              className="w-full h-[350px] object-cover"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-4" />
+                    <CarouselNext className="right-4" />
+                  </Carousel>
+                </div>
 
-                {/* Project Info */}
+                {/* Project Info Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Card>
+                  <Card className="gradient-border">
                     <CardContent className="pt-6">
-                      <h4 className="font-semibold text-sm text-muted-foreground mb-1">Client</h4>
-                      <p className="font-bold text-lg">{selectedProject.client}</p>
+                      <h4 className="font-semibold text-sm text-muted-foreground mb-2">Client</h4>
+                      <p className="font-bold text-xl mb-1">{selectedProject.client}</p>
                       <p className="text-sm text-muted-foreground">{selectedProject.clientType}</p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="gradient-border">
                     <CardContent className="pt-6">
-                      <h4 className="font-semibold text-sm text-muted-foreground mb-1">Project Timeline</h4>
-                      <p className="font-bold text-lg">{selectedProject.projectDate}</p>
+                      <h4 className="font-semibold text-sm text-muted-foreground mb-2">Project Timeline</h4>
+                      <p className="font-bold text-xl">{selectedProject.projectDate}</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -255,7 +257,7 @@ export default function Portfolio() {
                   <h4 className="font-bold text-xl mb-3">Development Team</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {selectedProject.team.map((member, index) => (
-                      <Card key={index}>
+                      <Card key={index} className="gradient-border">
                         <CardContent className="pt-4 pb-4">
                           <p className="font-semibold text-primary text-sm">{member.role}</p>
                           <p className="font-bold">{member.name}</p>
@@ -265,7 +267,7 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           )}
         </DialogContent>
       </Dialog>

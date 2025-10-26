@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { Instagram, Github, Linkedin } from "lucide-react"
 
 interface TeamMember {
   id: number
@@ -8,6 +9,11 @@ interface TeamMember {
   role: string
   tagline: string
   image: string
+  socials: {
+    instagram?: string
+    github?: string
+    linkedin?: string
+  }
 }
 
 const teamMembers: TeamMember[] = [
@@ -17,6 +23,11 @@ const teamMembers: TeamMember[] = [
     role: "Project Manager",
     tagline: "Leading projects with vision and precision",
     image: "/Azzam.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
   {
     id: 2,
@@ -24,6 +35,11 @@ const teamMembers: TeamMember[] = [
     role: "QA",
     tagline: "Ensuring quality in every line of code",
     image: "/Ghifari.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
   {
     id: 3,
@@ -31,6 +47,11 @@ const teamMembers: TeamMember[] = [
     role: "Backend Developer",
     tagline: "Building robust and scalable systems",
     image: "/Alfi.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
   {
     id: 4,
@@ -38,6 +59,11 @@ const teamMembers: TeamMember[] = [
     role: "Frontend Developer",
     tagline: "Crafting beautiful user experiences",
     image: "/Auryl.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
   {
     id: 5,
@@ -45,6 +71,11 @@ const teamMembers: TeamMember[] = [
     role: "UI/UX Designer",
     tagline: "Designing intuitive and engaging interfaces",
     image: "/Faiz.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
   {
     id: 6,
@@ -52,6 +83,11 @@ const teamMembers: TeamMember[] = [
     role: "Frontend Developer",
     tagline: "Bringing designs to life with code",
     image: "/Isa.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
   {
     id: 7,
@@ -59,6 +95,11 @@ const teamMembers: TeamMember[] = [
     role: "Mobile Developer",
     tagline: "Creating seamless mobile experiences",
     image: "/Abdul.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
   {
     id: 8,
@@ -66,6 +107,11 @@ const teamMembers: TeamMember[] = [
     role: "Backend Developer",
     tagline: "Engineering powerful server solutions",
     image: "/Julian.png",
+    socials: {
+      instagram: "#",
+      github: "#",
+      linkedin: "#",
+    },
   },
 ]
 
@@ -122,11 +168,45 @@ export default function Team() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 rounded-full bg-linear-to-br from-primary/20 to-accent/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
               </div>
               <h3 className="text-xl font-bold mb-1">{member.name}</h3>
               <p className="text-primary font-semibold mb-2">{member.role}</p>
-              <p className="text-sm text-muted-foreground">{member.tagline}</p>
+              <p className="text-sm text-muted-foreground mb-3">{member.tagline}</p>
+              
+              {/* Social Media Links */}
+              <div className="flex justify-center gap-3 mt-4">
+                {member.socials.instagram && (
+                  <a
+                    href={member.socials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                )}
+                {member.socials.github && (
+                  <a
+                    href={member.socials.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
+                )}
+                {member.socials.linkedin && (
+                  <a
+                    href={member.socials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
