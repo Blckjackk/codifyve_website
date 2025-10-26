@@ -13,8 +13,8 @@ interface Stat {
 const stats: Stat[] = [
   { icon: <Briefcase className="w-8 h-8" />, value: 2, label: "Projects Completed", suffix: "" },
   { icon: <Users className="w-8 h-8" />, value: 2, label: "Happy Clients", suffix: "" },
-  { icon: <Award className="w-8 h-8" />, value: 8, label: "Team Members", suffix: "" },
-  { icon: <Coffee className="w-8 h-8" />, value: 500, label: "Cups of Coffee", suffix: "+" },
+  { icon: <Award className="w-8 h-8" />, value: 15, label: "Awards Won", suffix: "+" },
+  { icon: <Coffee className="w-8 h-8" />, value: 1000, label: "Cups of Coffee", suffix: "+" },
 ]
 
 export default function Stats() {

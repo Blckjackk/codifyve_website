@@ -195,7 +195,7 @@ export default function Portfolio() {
                 <DialogTitle className="text-3xl font-bold gradient-text">{selectedProject.title}</DialogTitle>
               </DialogHeader>
 
-              <div className="overflow-y-auto px-6 py-6 space-y-6 flex-1">
+              <div className="overflow-y-auto px-6 py-6 space-y-6 flex-1 scrollbar-hidden">
                 {/* Image Carousel */}
                 <div className="w-full">
                   <Carousel className="w-full">

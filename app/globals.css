@@ -191,3 +191,12 @@
   box-shadow: 0 0 30px rgba(200, 169, 216, 0.4);
   transform: translateY(-2px);
 }
+
+/* Utility to hide native scrollbars but keep scrolling functional */
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
