@@ -13,31 +13,59 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Alex Chen",
-    role: "Lead Developer",
-    tagline: "Full-stack wizard crafting seamless digital experiences",
-    image: "/professional-developer-portrait.png",
+    name: "Ahmad Izzuddin Azzam",
+    role: "Project Manager",
+    tagline: "Leading projects with vision and precision",
+    image: "/placeholder.svg",
   },
   {
     id: 2,
-    name: "Sarah Williams",
-    role: "UI/UX Designer",
-    tagline: "Creating beautiful interfaces that users love",
-    image: "/professional-designer-portrait.png",
+    name: "Abdurrahman Al Ghifari",
+    role: "QA",
+    tagline: "Ensuring quality in every line of code",
+    image: "/placeholder.svg",
   },
   {
     id: 3,
-    name: "Marcus Johnson",
-    role: "Project Lead",
-    tagline: "Turning ideas into reality with precision and passion",
-    image: "/professional-project-manager.png",
+    name: "Muhammad Alfi Fariz",
+    role: "Backend Developer",
+    tagline: "Building robust and scalable systems",
+    image: "/placeholder.svg",
   },
   {
     id: 4,
-    name: "Emma Rodriguez",
-    role: "Backend Engineer",
-    tagline: "Building robust systems that scale",
-    image: "/professional-engineer-portrait.png",
+    name: "Aurylia Taffana",
+    role: "Frontend Developer",
+    tagline: "Crafting beautiful user experiences",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 5,
+    name: "Faiz Bayu Erlangga",
+    role: "UI/UX Designer",
+    tagline: "Designing intuitive and engaging interfaces",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 6,
+    name: "Muhammad Isa Abdullah",
+    role: "Frontend Developer",
+    tagline: "Bringing designs to life with code",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 7,
+    name: "Abdullah Hafizh Furqon",
+    role: "Mobile Developer",
+    tagline: "Creating seamless mobile experiences",
+    image: "/placeholder.svg",
+  },
+  {
+    id: 8,
+    name: "Julian Dwi Satrio",
+    role: "Backend Developer",
+    tagline: "Engineering powerful server solutions",
+    image: "/placeholder.svg",
   },
 ]
 
@@ -83,7 +111,7 @@ export default function Team() {
                 visibleMembers.includes(member.id) ? "animate-fade-in-up opacity-100" : "opacity-0"
               }`}
               style={{
-                animationDelay: `${index * 100}ms`,
+                animationDelay: `${index * 80}ms`,
               }}
             >
               <div className="mb-4 relative inline-block">
