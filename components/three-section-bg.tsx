@@ -33,11 +33,8 @@ function AnimatedParticles({ color, count }: { color: string; count: number }) {
     <points ref={particles}>
       <bufferGeometry>
         <bufferAttribute
-          attach="attributes-position"
-          count={particlesPosition.length / 3}
-          array={particlesPosition}
-          itemSize={3}
-        />
+                    attach="attributes-position"
+                    args={[particlesPosition, 3]} />
       </bufferGeometry>
       <pointsMaterial
         size={0.04}
