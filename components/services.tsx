@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Code, Smartphone, Palette, Server, TestTube, Cloud } from "lucide-react"
-import ParticlesBackground from "./particles-background"
+import { motion } from "framer-motion"
+import ThreeSectionBg from "./three-section-bg"
 
 interface Service {
   id: number
@@ -75,45 +76,64 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
+    <section id="services" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-background/50">
+      {/* 3D Background */}
+      <ThreeSectionBg variant="primary" particleCount={600} />
+      
       {/* Floating Animated Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
         <div className="floating-shape-alt top-20 left-10 w-80 h-80 text-accent" />
         <div className="floating-shape bottom-20 right-10 w-72 h-72 text-primary" />
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Our Services</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive digital solutions to bring your ideas to life
           </p>
-        </div>
+        </motion.div>
 
         <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={service.id}
               data-service-id={service.id}
-              className={`transition-all duration-500 ${
-                visibleServices.includes(service.id) ? "animate-fade-in-up opacity-100" : "opacity-0"
-              }`}
-              style={{
-                animationDelay: `${index * 100}ms`,
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.1,
+                ease: "easeOut" 
               }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+              viewport={{ once: true }}
             >
-              <Card className="h-full hover-glow gradient-border group cursor-pointer">
+              <Card className="h-full hover-glow gradient-border group cursor-pointer backdrop-blur-sm bg-card/50">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                  <motion.div 
+                    className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     {service.icon}
-                  </div>
+                  </motion.div>
                   <CardTitle className="text-2xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">{service.description}</p>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

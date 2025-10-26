@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Instagram, Github, Linkedin } from "lucide-react"
+import { motion } from "framer-motion"
+import ThreeSectionBg from "./three-section-bg"
 
 interface TeamMember {
   id: number
@@ -139,35 +141,52 @@ export default function Team() {
   }, [])
 
   return (
-    <section id="team" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
+    <section id="team" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-background/40">
+      {/* 3D Background */}
+      <ThreeSectionBg variant="accent" particleCount={800} />
+      
       {/* Floating Animated Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-15">
         <div className="floating-shape-alt top-20 right-20 w-80 h-80 text-primary" />
         <div className="floating-shape bottom-20 left-20 w-96 h-96 text-secondary" />
         <div className="floating-shape top-1/2 left-1/2 w-64 h-64 text-accent" />
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Meet Our Team</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Talented individuals united by a passion for creating exceptional digital solutions
           </p>
-        </div>
+        </motion.div>
 
         <div ref={sectionRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member, index) => (
-            <div
+            <motion.div
               key={member.id}
               data-member-id={member.id}
-              className={`text-center transition-all duration-500 ${
-                visibleMembers.includes(member.id) ? "animate-fade-in-up opacity-100" : "opacity-0"
-              }`}
-              style={{
-                animationDelay: `${index * 80}ms`,
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.4, 
+                delay: index * 0.08,
+                ease: "easeOut" 
               }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              className="text-center"
             >
-              <div className="mb-4 relative inline-block">
+              <motion.div 
+                className="mb-4 relative inline-block"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
                 <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/30 hover-glow">
                   <img
                     src={member.image || "/placeholder.svg"}
@@ -175,8 +194,13 @@ export default function Team() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 rounded-full bg-linear-to-br from-primary/20 to-accent/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
-              </div>
+                <motion.div 
+                  className="absolute inset-0 rounded-full bg-linear-to-br from-primary/20 to-accent/20"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
               <h3 className="text-xl font-bold mb-1">{member.name}</h3>
               <p className="text-primary font-semibold mb-2">{member.role}</p>
               <p className="text-sm text-muted-foreground mb-3">{member.tagline}</p>
@@ -214,7 +238,7 @@ export default function Team() {
                   </a>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

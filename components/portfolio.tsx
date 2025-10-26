@@ -5,7 +5,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import ParticlesBackground from "./particles-background"
+import { motion } from "framer-motion"
+import ThreeSectionBg from "./three-section-bg"
 
 interface TeamMember {
   role: string
@@ -144,26 +145,36 @@ export default function Portfolio() {
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Our Portfolio</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Showcasing our latest projects and the innovative solutions we've built
             </p>
-          </div>
+          </motion.div>
 
           <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div
+              <motion.div
                 key={project.id}
                 data-project-id={project.id}
-                className={`gradient-border rounded-lg overflow-hidden transition-all duration-500 ${
-                  visibleProjects.includes(project.id) ? "animate-fade-in-up opacity-100" : "opacity-0"
-                }`}
-                style={{
-                  animationDelay: `${index * 150}ms`,
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.15,
+                  ease: "easeOut" 
                 }}
+                whileHover={{ y: -10 }}
+                viewport={{ once: true }}
+                className="gradient-border rounded-lg overflow-hidden"
               >
-                <div className="bg-card p-6 hover-glow">
+                <div className="bg-card/50 backdrop-blur-sm p-6 hover-glow h-full">
                   <div className="mb-4 rounded-lg overflow-hidden h-48">
                     <img
                       src={project.image || "/placeholder.svg"}
@@ -187,7 +198,7 @@ export default function Portfolio() {
                     View Project
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

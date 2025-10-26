@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
-import ParticlesBackground from "./particles-background"
+import { motion } from "framer-motion"
+import ThreeBackground from "./three-background"
 
 interface BlogPost {
   id: number
@@ -77,34 +78,46 @@ export default function Blog() {
   }, [])
 
   return (
-    <section id="blog" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
+    <section id="blog" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-linear-to-b from-background via-background/95 to-background">
+      {/* 3D Background - Same as Hero */}
+      <ThreeBackground />
+      
       {/* Floating Animated Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="floating-shape-alt top-20 right-20 w-80 h-80 text-secondary" />
         <div className="floating-shape bottom-20 left-20 w-72 h-72 text-primary" />
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Latest Insights</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Stay updated with the latest trends and insights from our team
           </p>
-        </div>
+        </motion.div>
 
         <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post, index) => (
-            <div
+            <motion.div
               key={post.id}
               data-post-id={post.id}
-              className={`transition-all duration-500 ${
-                visiblePosts.includes(post.id) ? "animate-fade-in-up opacity-100" : "opacity-0"
-              }`}
-              style={{
-                animationDelay: `${index * 150}ms`,
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.15,
+                ease: "easeOut" 
               }}
+              whileHover={{ y: -10 }}
+              viewport={{ once: true }}
             >
-              <Card className="hover-glow cursor-pointer overflow-hidden group h-full flex flex-col gradient-border">
+              <Card className="hover-glow cursor-pointer overflow-hidden group h-full flex flex-col gradient-border backdrop-blur-sm bg-card/50">
                 <div className="h-48 overflow-hidden">
                   <img
                     src={post.image}
@@ -134,7 +147,7 @@ export default function Blog() {
                   </button>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
