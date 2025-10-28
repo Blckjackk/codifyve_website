@@ -174,11 +174,11 @@ export default function Portfolio() {
                 className="gradient-border rounded-lg overflow-hidden"
               >
                 <div className="bg-card/50 backdrop-blur-sm p-6 hover-glow h-full">
-                  <div className="mb-4 rounded-lg overflow-hidden h-48">
+                  <div className="mb-4 rounded-lg overflow-hidden h-64 bg-muted/10 flex items-center justify-center">
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
@@ -219,11 +219,11 @@ export default function Portfolio() {
                     <CarouselContent>
                       {selectedProject.images.map((image, index) => (
                         <CarouselItem key={index}>
-                          <div className="rounded-lg overflow-hidden border-2 border-border">
+                          <div className="rounded-lg overflow-hidden border-2 border-border bg-muted/10 flex items-center justify-center">
                             <img
                               src={image || "/placeholder.svg"}
                               alt={`${selectedProject.title} - Image ${index + 1}`}
-                              className="w-full h-[350px] object-cover"
+                              className="w-full h-[500px] object-contain"
                             />
                           </div>
                         </CarouselItem>
