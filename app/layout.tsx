@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: "Codifyve - Transforming Code into Experiences",
   description: "Creative software development team specializing in web and app solutions",
   generator: "v0.app",
+  icons: {
+    icon: "/Logo Codifyve.png",
+    shortcut: "/Logo Codifyve.png",
+    apple: "/Logo Codifyve.png",
+  },
 }
 
 export default function RootLayout({
