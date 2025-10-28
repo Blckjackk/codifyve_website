@@ -35,8 +35,8 @@ const projects: Project[] = [
     fullDescription:
       "Bakti Formica Untuk Bangsa (BFUB) XXVII is an annual program by BEM HMBF FPMIPA UPI, serving as a platform for developing the potential and competence of Indonesian youth in science and biology. The event includes various competition branches such as Science Olympiad (OSA), Biology Olympiad (OBI), Biology Quick Quiz Competition (LCTB), National Scientific Paper Competition (LKTIN), Microteaching, and National Biology Olympiad (OBN). To support more efficient, transparent, and modern competition implementation, the Official BFUB XXVII Website was developed as an integrated digital platform for all competition activities, from participant registration to online competition execution.",
     techStack: ["Laravel", "Node.js", "MySQL", "Bootstrap"],
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    image: "/Project/bfub/Bfub 4.png",
+    images: ["/Project/bfub/Bfub 1.png", "/Project/bfub/Bfub 2.png", "/Project/bfub/Bfub 3.png", "/Project/bfub/Bfub 4.png"],
     client: "HMBF FPMIPA UPI - Panitia BFUB",
     clientType: "Academic Organization",
     projectDate: "July 2025 - August 2025",
