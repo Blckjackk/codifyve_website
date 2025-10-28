@@ -1,10 +1,15 @@
 "use client"
 
+import ThreeBackground from "./three-background"
+
 export default function About() {
   return (
-    <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-mesh">
-      {/* Floating Animated Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-linear-to-b from-background via-background/95 to-background">
+      {/* 3D Background with React Three Fiber */}
+      <ThreeBackground />
+      
+      {/* Floating Animated Shapes (kept for additional depth) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <div className="floating-shape-alt top-20 right-20 w-80 h-80 text-secondary" />
         <div className="floating-shape bottom-20 left-20 w-72 h-72 text-accent" />
       </div>
