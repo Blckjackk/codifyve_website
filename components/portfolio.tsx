@@ -30,6 +30,46 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "BFUB CBT Website",
+    description: "Competition-Based Testing platform for BFUB XXVII national biology and science olympiad with integrated registration and online examination system.",
+    fullDescription:
+      "Bakti Formica Untuk Bangsa (BFUB) XXVII is an annual program by BEM HMBF FPMIPA UPI, serving as a platform for developing the potential and competence of Indonesian youth in science and biology. The event includes various competition branches such as Science Olympiad (OSA), Biology Olympiad (OBI), Biology Quick Quiz Competition (LCTB), National Scientific Paper Competition (LKTIN), Microteaching, and National Biology Olympiad (OBN). To support more efficient, transparent, and modern competition implementation, the Official BFUB XXVII Website was developed as an integrated digital platform for all competition activities, from participant registration to online competition execution.",
+    techStack: ["Laravel", "Node.js", "MySQL", "Bootstrap"],
+    image: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    client: "HMBF FPMIPA UPI - Panitia BFUB",
+    clientType: "Academic Organization",
+    projectDate: "July 2025 - August 2025",
+    team: [
+      { role: "Project Manager", name: "Ahmad Izzuddin Azzam" },
+      { role: "UI/UX Designer", name: "Faiz Bayu Erlangga" },
+      { role: "Frontend Developer", name: "Aurylia Taffana" },
+      { role: "Backend Developer", name: "Muhammad Alfi Fariz" },
+      { role: "QA Engineer", name: "Abdurrahman Al Ghifari" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Phyfest UPI",
+    description: "Digital platform for Physics Festival UPI featuring event registration, competition management, and real-time leaderboard system.",
+    fullDescription:
+      "Physics Festival (Phyfest) UPI is a prestigious annual physics competition organized by the Physics Education Student Association of UPI. The event brings together talented students from across Indonesia to compete in various physics-related competitions and activities. We developed a comprehensive web platform that streamlines the entire event lifecycle - from participant registration, competition administration, to live score tracking and winner announcements. The platform features a modern interface, secure payment integration, and real-time updates to enhance participant experience.",
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
+    image: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    client: "HMPS Pendidikan Fisika UPI",
+    clientType: "Academic Organization",
+    projectDate: "September 2025 - October 2025",
+    team: [
+      { role: "Project Manager", name: "Ahmad Izzuddin Azzam" },
+      { role: "UI/UX Designer", name: "Faiz Bayu Erlangga" },
+      { role: "Frontend Developer", name: "Muhammad Isa Abdullah" },
+      { role: "Backend Developer", name: "Julian Dwi Satrio" },
+      { role: "QA Engineer", name: "Abdurrahman Al Ghifari" },
+    ],
+  },
+  {
+    id: 3,
     title: "E-Commerce Platform",
     description: "A modern e-commerce solution with real-time inventory management and seamless checkout experience.",
     fullDescription:
@@ -49,7 +89,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     title: "SaaS Analytics Dashboard",
     description: "Comprehensive analytics platform providing real-time insights and data visualization for businesses.",
     fullDescription:
@@ -64,47 +104,6 @@ const projects: Project[] = [
       { role: "Project Manager", name: "Ahmad Izzuddin Azzam" },
       { role: "UI/UX Designer", name: "Faiz Bayu Erlangga" },
       { role: "Frontend Developer", name: "Muhammad Isa Abdullah" },
-      { role: "Backend Developer", name: "Julian Dwi Satrio" },
-      { role: "QA Engineer", name: "Abdurrahman Al Ghifari" },
-    ],
-  },
-  {
-    id: 3,
-    title: "Mobile Fitness App",
-    description:
-      "Cross-platform fitness application with workout tracking, social features, and AI-powered recommendations.",
-    fullDescription:
-      "Created an innovative fitness application that combines workout tracking, nutrition planning, and social networking. The AI-powered recommendation engine creates personalized workout plans based on user goals, fitness level, and available equipment. The app has helped over 10,000 users achieve their fitness goals.",
-    techStack: ["React Native", "Firebase", "Python", "TensorFlow"],
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    client: "FitLife Asia",
-    clientType: "Health & Wellness",
-    projectDate: "July 2024 - September 2024",
-    team: [
-      { role: "Project Manager", name: "Ahmad Izzuddin Azzam" },
-      { role: "UI/UX Designer", name: "Faiz Bayu Erlangga" },
-      { role: "Mobile Developer", name: "Abdullah Hafizh Furqon" },
-      { role: "Backend Developer", name: "Muhammad Alfi Fariz" },
-      { role: "QA Engineer", name: "Abdurrahman Al Ghifari" },
-    ],
-  },
-  {
-    id: 4,
-    title: "Content Management System",
-    description: "Headless CMS built for developers with powerful APIs and intuitive content management interface.",
-    fullDescription:
-      "Developed a flexible headless CMS that empowers content creators while giving developers full control. Features include version control, multi-language support, custom content types, and RESTful/GraphQL APIs. The system serves content to web, mobile, and IoT devices seamlessly.",
-    techStack: ["Next.js", "GraphQL", "MongoDB", "Docker"],
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    client: "MediaCorp Digital",
-    clientType: "Media & Publishing",
-    projectDate: "October 2024 - December 2024",
-    team: [
-      { role: "Project Manager", name: "Ahmad Izzuddin Azzam" },
-      { role: "UI/UX Designer", name: "Faiz Bayu Erlangga" },
-      { role: "Frontend Developer", name: "Aurylia Taffana" },
       { role: "Backend Developer", name: "Julian Dwi Satrio" },
       { role: "QA Engineer", name: "Abdurrahman Al Ghifari" },
     ],
