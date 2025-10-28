@@ -205,9 +205,9 @@ export default function Portfolio() {
 
       {/* Project Detail Dialog */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-5xl max-h-[90vh] p-0">
+        <DialogContent className="max-w-7xl max-h-[95vh] p-0 w-[95vw]">
           {selectedProject && (
-            <div className="flex flex-col max-h-[90vh]">
+            <div className="flex flex-col max-h-[95vh]">
               <DialogHeader className="px-6 pt-6 pb-4 border-b shrink-0">
                 <DialogTitle className="text-3xl font-bold gradient-text">{selectedProject.title}</DialogTitle>
               </DialogHeader>
@@ -219,11 +219,11 @@ export default function Portfolio() {
                     <CarouselContent>
                       {selectedProject.images.map((image, index) => (
                         <CarouselItem key={index}>
-                          <div className="rounded-lg overflow-hidden border-2 border-border bg-muted/10 flex items-center justify-center">
+                          <div className="rounded-lg overflow-hidden border-2 border-border bg-muted/10 flex items-center justify-center min-h-[600px]">
                             <img
                               src={image || "/placeholder.svg"}
                               alt={`${selectedProject.title} - Image ${index + 1}`}
-                              className="w-full h-[500px] object-contain"
+                              className="w-full max-h-[600px] object-contain"
                             />
                           </div>
                         </CarouselItem>
